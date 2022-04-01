@@ -1,0 +1,25 @@
+{{page-title 'Dating App'}}
+<h1>Dating App</h1>
+
+{{#if this.model.profile}}
+<div class="jumbotron">
+  {{#if this.model.profile.profile_image.name}}
+  <img src="/game/uploads/{{this.model.profile.profile_image.path}}" alt="{{this.model.profile.name}}'s icon"  class="profile-image" title="{{this.model.profile.profile_image.description}}">
+  {{else}}
+  <img src="/game/uploads/theme_images/noicon.png" class="profile-image" alt="{{this.model.profile.name}}'s icon" >
+  {{/if}}
+  <LinkTo @route="char" @model={{this.model.profile.name}}>
+    <h2>{{this.model.profile.name}}</h2>
+  </LinkTo>
+  <p>{{this.model.profile.dateprof}}</p>
+
+  <div>
+    <button {{action "swipe" this.model.profile.name "interested"}} class="btn btn-secondary">Interested</button>
+    <button {{action "swipe" this.model.profile.name "curious"}} class="btn btn-secondary">Curious</button>
+    <button {{action "swipe" this.model.profile.name "skip"}} class="btn btn-secondary">Skip</button>
+  </div>
+</div>
+{{else}}
+<p>You have nobody left to swipe!</p>
+{{/if}}
+
