@@ -9,6 +9,6 @@ export default Route.extend(DefaultRoute, ReloadableRoute, {
 
     model: function(params) {
         let api = this.gameApi;
-        return api.requestOne('nextDatingProfile');
+        return api.requestOne('datingApp');
     },
 });
