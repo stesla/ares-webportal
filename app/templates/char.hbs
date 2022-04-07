@@ -25,21 +25,21 @@
 
 <div class="profile-tab">
 
-  <ProfileSystem @char={{this.model.char}} @game={{this.model.game}} @reloadChar={{action "reloadChar"}} />
-  
+  <ProfileSystem @char={{this.model.char}} @game={{this.model.game}} @reloadChar={{action "reloadChar"}} @isAdmin={{this.isAdmin}} />
+
 </div>
 
 
 <div class="profile-tab">
 
  <ProfileRelationships @char={{this.model.char}} />
- 
+
  </div>
- 
+
  <div class="profile-tab">
- 
+
 <ProfileLogs @scenes={{this.model.scenes}} @sceneTypes={{this.model.sceneOptions.scene_types}} @char={{this.model.char}} />
-   
+
 </div>
    
 <div class="profile-tab">

@@ -5,18 +5,20 @@ import { inject as service } from '@ember/service';
 export default Controller.extend(AuthenticatedController, {
   gameApi: service(),
   flashMessages: service(),
-  router: service(),
 
   actions: {
     swipe: function(name, type) {
       this.gameApi.requestOne('swipeFor', { target: name, type: type }, null)
       .then( (response) => {
-        console.log(response.error);
         if (response.error) {
           return;
         }
-        window.location.reload(true);
-      });
+        if (response.match)
+          this.flashMessages.success("You matched!");
+        else
+          this.flashMessages.success("Swiped!");
+        this.send('reloadModel');
+     });
     },
   },
 });
