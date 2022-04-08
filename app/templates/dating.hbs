@@ -5,7 +5,6 @@
   <li class="nav-item"><a data-bs-toggle="tab" class="nav-link {{if this.model.profile 'active'}}" href="#swiping">Swiping</a></li>
   <li class="nav-item"><a data-bs-toggle="tab" class="nav-link {{unless this.model.profile 'active'}}" href="#matches">Matches</a></li>
   <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#swipes">Swipes</a></li>
-  <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#missed">Missed Connections</a></li>
 </ul>
 
 <div class="tab-content">
@@ -45,9 +44,5 @@
     <h2>{{list.name}}</h2>
     <CharGroupList @name="" @chars={{list.characters}} />
     {{/each}}
-  </div>
-
-  <div id="missed" class="tab-pane fade show">
-    <CharGroupList @name="" @chars={{this.model.missed}} />
   </div>
 </div>
