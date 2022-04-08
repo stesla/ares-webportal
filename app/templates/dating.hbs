@@ -9,7 +9,7 @@
 
 <div class="tab-content">
   <div id="swiping" class="tab-pane fade show {{if this.model.profile 'active'}}">
-    <div class="jumbotron">
+    <div class="text-center">
     {{#if this.model.profile}}
       {{#if this.model.profile.profile_image.name}}
       <img src="/game/uploads/{{this.model.profile.profile_image.path}}" alt="{{this.model.profile.name}}'s icon"  class="profile-image" title="{{this.model.profile.profile_image.description}}">
@@ -19,7 +19,7 @@
       <LinkTo @route="char" @model={{this.model.profile.name}}>
         <h2>{{this.model.profile.name}}</h2>
       </LinkTo>
-      <p>{{this.model.profile.dateprof}}</p>
+      <p>{{{ansi-format text=this.model.profile.dateprof}}}</p>
 
       <div>
         <button {{action "swipe" this.model.profile.name "interested"}} class="btn btn-secondary">Interested</button>
