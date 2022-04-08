@@ -56,12 +56,40 @@
         
         <div class="row">
             <div class="col-sm-4">
-                    <b>Last Online</b> 
+              <b>Last Online</b>
             </div>
             <div class="col-sm-8">
                     {{this.char.last_online}}
             </div>
         </div>
+
+        {{#if showDatingSection}}
+        <div class="profile-divider">
+        </div>
+        {{/if}}
+
+        {{#if this.dating.match}}
+        <div class="row">
+          <div class="col-sm-4">
+            <b>Dating Match</b>
+          </div>
+          <div class="col-sm-8">
+            {{this.dating.match}}
+          </div>
+        </div>
+        {{/if}}
+
+        {{#if this.dating.swipe}}
+        <div class="row">
+          <div class="col-sm-4">
+            <b>Dating Swipe</b>
+          </div>
+          <div class="col-sm-8">
+            {{this.dating.swipe.type}}{{if this.dating.swipe.missed " (Missed)"}}
+          </div>
+        </div>
+        {{/if}}
+
         </div>
         
     </div>

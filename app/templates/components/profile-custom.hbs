@@ -1,3 +1,13 @@
+{{#unless this.char.custom.isAdmin}}
 <div id="dateprof-dateprof" class="tab-pane fade">
     {{{ansi-format text=char.custom.dateprof}}}
+    {{#unless this.isAdmin}}
+    <div class="action-buttons">
+      <button {{action "swipe" char.name "interested"}} class="btn btn-secondary">Interested</button>
+      <button {{action "swipe" char.name "curious"}} class="btn btn-secondary">Curious</button>
+      <button {{action "swipe" char.name "skip"}} class="btn btn-secondary">Skip</button>
+      <button {{action "swipe" char.name "missed"}} class="btn btn-secondary">Missed</button>
+    </div>
+    {{/unless}}
 </div>
+{{/unless}}
