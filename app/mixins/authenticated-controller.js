@@ -15,5 +15,7 @@ export default Mixin.create({
 
   isWikiMgr: computed.reads('session.data.authenticated.is_wiki_mgr'),
 
+  canSwipe: computed.reads('session.data.authenticated.can_swipe'),
+
   currentUser: computed.reads('session.data.authenticated'),
 });

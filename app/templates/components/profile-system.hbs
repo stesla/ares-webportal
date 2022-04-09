@@ -45,7 +45,7 @@
     <li class="nav-item"><a data-bs-toggle="tab" class="nav-link" href="#systemsite">Admin</a></li>
   {{/if}}
   
-  <ProfileCustomTabs @char={{this.char}} @game={{this.game}} @isAdmin={{this.isAdmin}} />
+  <ProfileCustomTabs @char={{this.char}} @game={{this.game}} />
 
 </ul>
 
@@ -129,6 +129,6 @@
   </div>
   {{/if}}
   
-  <ProfileCustom @char={{this.char}} @game={{this.game}} @reloadChar={{action "reloadChar"}} @isAdmin={{this.isAdmin}} />
+  <ProfileCustom @char={{this.char}} @game={{this.game}} @reloadChar={{action "reloadChar"}} @canSwipe={{this.canSwipe}} />
   
 </div>

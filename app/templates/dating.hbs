@@ -9,27 +9,46 @@
 
 <div class="tab-content">
   <div id="swiping" class="tab-pane fade show {{if this.model.profile 'active'}}">
-    <div class="text-center">
     {{#if this.model.profile}}
-      {{#if this.model.profile.profile_image.name}}
-      <img src="/game/uploads/{{this.model.profile.profile_image.path}}" alt="{{this.model.profile.name}}'s icon"  class="profile-image" title="{{this.model.profile.profile_image.description}}">
-      {{else}}
-      <img src="/game/uploads/theme_images/noicon.png" class="profile-image" alt="{{this.model.profile.name}}'s icon" >
-      {{/if}}
-      <LinkTo @route="char" @model={{this.model.profile.name}}>
-        <h2>{{this.model.profile.name}}</h2>
-      </LinkTo>
-      <p>{{{ansi-format text=this.model.profile.dateprof}}}</p>
-
-      <div>
-        <button {{action "swipe" this.model.profile.name "interested"}} class="btn btn-secondary">Interested</button>
-        <button {{action "swipe" this.model.profile.name "curious"}} class="btn btn-secondary">Curious</button>
-        <button {{action "swipe" this.model.profile.name "skip"}} class="btn btn-secondary">Skip</button>
+    <h2 class="dating-name">{{this.model.profile.name}}</h2>
+    <div class="row align-items-start">
+      <div class="col-lg text-center">
+        {{#if this.model.profile.profile_image.name}}
+        <img src="/game/uploads/{{this.model.profile.profile_image.path}}"
+             alt="{{this.model.profile.name}}'s icon"
+             class="dating-profile-image"
+             title="{{this.model.profile.profile_image.description}}">
+        {{else}}
+        <img src="/game/uploads/theme_images/noicon.png" class="dating-profile-image" alt="{{this.model.profile.name}}'s icon" >
+        {{/if}}
+        <LinkTo @route="char" @model={{this.model.profile.name}} class="dating-profile-link">View Profile</LinkTo>
       </div>
-    {{else}}
-      <p>You have nobody left to swipe!</p>
-    {{/if}}
+      <div class="col-lg">
+        <div class="dating-facts-box">
+          {{#each this.model.profile.facts as |fact|}}
+          <div class="row">
+            <div class="col-xl-4">
+              <b>{{fact.name}}</b>
+            </div>
+            <div class="col-xl-8">
+              {{fact.value}}
+            </div>
+          </div>
+          {{/each}}
+        </div>
+        <div class="dating-facts-profile">{{{ansi-format text=this.model.profile.dateprof}}}</div>
+        <div class="dating-buttons">
+          <button {{action "swipe" this.model.profile.name "interested"}} class="btn btn-secondary">Interested</button>
+          <button {{action "swipe" this.model.profile.name "curious"}} class="btn btn-secondary">Curious</button>
+          <button {{action "swipe" this.model.profile.name "skip"}} class="btn btn-secondary">Skip</button>
+        </div>
+      </div>
     </div>
+    {{else}}
+    <div class="jumbotron">
+      <p>You have nobody left to swipe!</p>
+    </div>
+    {{/if}}
   </div>
 
   <div id="matches" class="tab-pane fade show {{unless this.model.profile 'active'}}">
