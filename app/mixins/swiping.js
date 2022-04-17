@@ -12,10 +12,7 @@ export default Mixin.create({
         if (response.error) {
           return;
         }
-        if (response.match)
-          this.flashMessages.success("You matched!");
-        else
-          this.flashMessages.success("Swiped!");
+        this.flashMessages.success(response.message);
         this.reloadChar();
      });
     },
