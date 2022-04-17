@@ -7,8 +7,8 @@ export default Controller.extend(Swiping, {
   },
 
   actions: {
-    altMatches: function(option) {
-      this.gameApi.requestOne('altMatches', { option: option }, null)
+    showOrHideAltMatches: function(option) {
+      this.gameApi.requestOne('showOrHideAltMatches', { option: option }, null)
       .then( (response) => {
         if (response.error) {
           return;

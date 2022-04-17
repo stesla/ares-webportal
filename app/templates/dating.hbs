@@ -54,9 +54,9 @@
   <div id="matches" class="tab-pane fade show {{unless this.model.profile 'active'}}">
     <div class="action-buttons">
       {{#if this.model.hide_alt_matches}}
-      <button {{action "altMatches" "show"}} class="btn btn-secondary">Show alt matches</button>
+      <button {{action "showOrHideAltMatches" "show"}} class="btn btn-secondary">Show alt matches</button>
       {{else}}
-      <button {{action "altMatches" "hide"}} class="btn btn-secondary">Hide alt matches</button>
+      <button {{action "showOrHideAltMatches" "hide"}} class="btn btn-secondary">Hide alt matches</button>
       {{/if}}
     </div>
     {{#each this.model.matches as |list|}}
