@@ -1,8 +1,8 @@
 {{page-title 'The App - Match Summary'}}
 <h1>The App - Match Summary</h1>
 <div class="action-buttons">
-  <button {{action "showOrHideAltMatches" "show"}} class="btn btn-secondary">Show alt matches</button>
-  <button {{action "showOrHideAltMatches" "hide"}} class="btn btn-secondary">Hide alt matches</button>
+  <button {{action "showOrHideAlts" "show"}} class="btn btn-secondary">Show Alts</button>
+  <button {{action "showOrHideAlts" "hide"}} class="btn btn-secondary">Hide Alts</button>
 </div>
 {{#each this.model.alts as |alt|}}
 <h2>{{alt.char.name}}</h2>

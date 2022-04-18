@@ -1,6 +1,14 @@
 {{page-title 'The App'}}
 <h1>The App</h1>
 
+<div class="action-buttons">
+  {{#if this.model.hide_alt_matches}}
+  <button {{action "showOrHideAlts" "show"}} class="btn btn-secondary">Show Alts</button>
+  {{else}}
+  <button {{action "showOrHideAlts" "hide"}} class="btn btn-secondary">Hide Alts</button>
+  {{/if}}
+</div>
+
 <ul class="nav nav-tabs" role="tablist">
   <li class="nav-item"><a data-bs-toggle="tab" class="nav-link {{if this.model.profile 'active'}}" href="#swiping">Swiping</a></li>
   <li class="nav-item"><a data-bs-toggle="tab" class="nav-link {{unless this.model.profile 'active'}}" href="#matches">Matches</a></li>
@@ -52,13 +60,6 @@
   </div>
 
   <div id="matches" class="tab-pane fade show {{unless this.model.profile 'active'}}">
-    <div class="action-buttons">
-      {{#if this.model.hide_alt_matches}}
-      <button {{action "showOrHideAltMatches" "show"}} class="btn btn-secondary">Show alt matches</button>
-      {{else}}
-      <button {{action "showOrHideAltMatches" "hide"}} class="btn btn-secondary">Hide alt matches</button>
-      {{/if}}
-    </div>
     {{#each this.model.matches as |list|}}
     <h2>{{list.name}}</h2>
     <CharGroupList @name="" @chars={{list.characters}} />

@@ -10,8 +10,8 @@ export default Controller.extend({
   },
 
   actions: {
-    showOrHideAltMatches: function(option) {
-      this.gameApi.requestOne('showOrHideAltMatches', { option: option, alts: true }, null)
+    showOrHideAlts: function(option) {
+      this.gameApi.requestOne('showOrHideAlts', { option: option, alts: true }, null)
       .then( (response) => {
         if (response.error) {
           return;
