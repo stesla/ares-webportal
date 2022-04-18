@@ -1,6 +1,9 @@
 {{page-title 'Dating App - Alt Matches'}}
 <h1>Dating App - Alt Matches</h1>
-
+<div class="action-buttons">
+  <button {{action "showOrHideAltMatches" "show"}} class="btn btn-secondary">Show alt matches</button>
+  <button {{action "showOrHideAltMatches" "hide"}} class="btn btn-secondary">Hide alt matches</button>
+</div>
 {{#each this.model.alts as |alt|}}
 <h2>{{alt.char.name}}</h2>
 {{#each alt.matches as |m|}}
