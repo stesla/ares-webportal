@@ -1,0 +1,23 @@
+{{page-title 'Dating App - Alt Matches'}}
+<h1>Dating App - Alt Matches</h1>
+
+{{#each this.model.alts as |alt|}}
+<h2>{{alt.char.name}}</h2>
+{{#each alt.matches as |m|}}
+<h3>{{m.name}}</h3>
+<ul class="dating-alts-match-list">
+{{#each m.characters as |c|}}
+  <li>
+    <LinkTo @route="char" @model={{c.name}}>
+      {{#if c.icon}}
+      <img alt="{{c.name}}'s icon" class="small-profile-icon" src="/game/uploads/{{c.icon}}">
+      {{else}}
+      <img alt="{{c.name}}'s icon" class="small-profile-icon" src="/game/uploads/theme_images/noicon.png">
+      {{/if}}
+    </LinkTo>
+    <LinkTo @route="char" @model={{c.name}}>{{c.name}}</LinkTo>
+  </li>
+{{/each}}
+</ul>
+{{/each}}
+{{/each}}

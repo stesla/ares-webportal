@@ -4,4 +4,5 @@ export default function setupCustomRoutes(router) {
   // router.route('yourroute');
   
   router.route('dating');
+  router.route('dating-alts', { path: '/dating/alts' });
 }
