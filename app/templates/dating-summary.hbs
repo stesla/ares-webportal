@@ -11,14 +11,16 @@
 <ul class="dating-alts-match-list">
 {{#each m.characters as |c|}}
   <li>
-    <LinkTo @route="char" @model={{c.name}}>
-      {{#if c.icon}}
-      <img alt="{{c.name}}'s icon" class="small-profile-icon" src="/game/uploads/{{c.icon}}">
-      {{else}}
-      <img alt="{{c.name}}'s icon" class="small-profile-icon" src="/game/uploads/theme_images/noicon.png">
-      {{/if}}
-    </LinkTo>
-    <LinkTo @route="char" @model={{c.name}}>{{c.name}}</LinkTo>
+    <div>
+      <LinkTo @route="char" @model={{c.name}}>
+        {{#if c.icon}}
+        <img alt="{{c.name}}'s icon" class="small-profile-icon" src="/game/uploads/{{c.icon}}">
+        {{else}}
+        <img alt="{{c.name}}'s icon" class="small-profile-icon" src="/game/uploads/theme_images/noicon.png">
+        {{/if}}
+      </LinkTo>
+      <LinkTo @route="char" @model={{c.name}}>{{c.name}}</LinkTo>
+    </div>
   </li>
 {{/each}}
 </ul>
