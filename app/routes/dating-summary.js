@@ -9,6 +9,6 @@ export default Route.extend(DefaultRoute, ReloadableRoute, {
 
     model: function(params) {
         let api = this.gameApi;
-        return api.requestOne('altMatches');
+        return api.requestOne('datingSummary');
     },
 });
