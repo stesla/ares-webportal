@@ -5,10 +5,6 @@ export default Controller.extend({
   gameApi: service(),
   flashMessages: service(),
 
-  reloadChar() {
-    this.send('reloadModel');
-  },
-
   actions: {
     showOrHideAlts: function(option) {
       this.gameApi.requestOne('showOrHideAlts', { option: option, alts: true }, null)
@@ -17,7 +13,7 @@ export default Controller.extend({
           return;
         }
         this.flashMessages.success(response.message);
-        this.reloadChar();
+        this.send('reloadModel');
       });
     },
   },
