@@ -2,6 +2,11 @@
 <h1>The App</h1>
 
 <div class="action-buttons">
+  <div class="dating-char-select">
+    <PowerSelect @selected={{this.model.swiping_with}} @options={{this.model.dating_alts}} @searchEnabled=true @searchField="name" @onChange={{action "daterChanged"}} as |dater|>
+      <CharIconTiny @char={{dater}} />
+    </PowerSelect>
+  </div>
   {{#if this.model.hide_alts}}
   <button {{action "showOrHideAlts" "show"}} class="btn btn-secondary">Show Alts</button>
   {{else}}
