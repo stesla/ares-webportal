@@ -13,7 +13,7 @@ export default Mixin.create({
           return;
         }
         this.flashMessages.success(response.message);
-        this.reloadChar();
+        this.send('reloadModel');
      });
     },
   },
