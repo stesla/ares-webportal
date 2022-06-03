@@ -3,6 +3,7 @@ export default function setupCustomRoutes(router) {
   // For example:
   // router.route('yourroute');
   
+  router.route('census-birthday');
   router.route('dating');
   router.route('dating-summary', { path: '/dating/summary' });
 }
