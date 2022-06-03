@@ -11,7 +11,6 @@ export default Route.extend(DefaultRoute, {
     model: function(params) {
         let api = this.gameApi;
         return RSVP.hash({
-             filter: params['filter'],
              types:  api.request('censusTypes'),
              census: api.requestOne('censusBirthday'),
            })
