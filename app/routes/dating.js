@@ -7,8 +7,15 @@ import DefaultRoute from 'ares-webportal/mixins/default-route';
 export default Route.extend(DefaultRoute, ReloadableRoute, {
     gameApi: service(),
 
+    queryParams: {
+      dater: {
+        replace: true,
+        refreshModel: true,
+      },
+    },
+
     model: function(params) {
         let api = this.gameApi;
-        return api.requestOne('datingApp');
+        return api.requestOne('datingApp', { dater: params['dater'] });
     },
 });

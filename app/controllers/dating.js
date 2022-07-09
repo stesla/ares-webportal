@@ -2,6 +2,10 @@ import Controller from '@ember/controller';
 import Swiping from 'ares-webportal/mixins/swiping';
 
 export default Controller.extend(Swiping, {
+  queryParams: ['dater'],
+
+  dater: null,
+
   actions: {
     showOrHideAlts: function(option) {
       this.gameApi.requestOne('showOrHideAlts', { option: option }, null)
@@ -20,7 +24,7 @@ export default Controller.extend(Swiping, {
         if (response.error) {
           return;
         }
-        this.send('reloadModel');
+        this.set('dater', dater.name);
       });
     },
   },
