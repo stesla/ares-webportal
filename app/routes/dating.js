@@ -1,21 +1,22 @@
 import EmberObject from '@ember/object';
 import Route from '@ember/routing/route';
 import { inject as service } from '@ember/service';
-import ReloadableRoute from 'ares-webportal/mixins/reloadable-route';
+import AuthenticatedRoute from 'ares-webportal/mixins/authenticated-route';
 import DefaultRoute from 'ares-webportal/mixins/default-route';
+import ReloadableRoute from 'ares-webportal/mixins/reloadable-route';
 
-export default Route.extend(DefaultRoute, ReloadableRoute, {
-    gameApi: service(),
+export default Route.extend(DefaultRoute, ReloadableRoute, AuthenticatedRoute, {
+  gameApi: service(),
 
-    queryParams: {
-      dater: {
-        replace: true,
-        refreshModel: true,
-      },
+  queryParams: {
+    dater: {
+      replace: true,
+      refreshModel: true,
     },
+  },
 
-    model: function(params) {
-        let api = this.gameApi;
-        return api.requestOne('datingApp', { dater: params['dater'] });
-    },
+  model: function(params) {
+    let api = this.gameApi;
+    return api.requestOne('datingApp', { dater: params['dater'] });
+  },
 });

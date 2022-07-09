@@ -1,7 +1,8 @@
 import Controller from '@ember/controller';
 import Swiping from 'ares-webportal/mixins/swiping';
+import AuthenticatedController from 'ares-webportal/mixins/authenticated-controller';
 
-export default Controller.extend(Swiping, {
+export default Controller.extend(Swiping, AuthenticatedController, {
   queryParams: ['dater'],
 
   dater: null,
@@ -19,13 +20,7 @@ export default Controller.extend(Swiping, {
     },
 
     daterChanged: function(dater) {
-      this.gameApi.requestOne('swipeWith', { char: dater.name })
-      .then( (response) => {
-        if (response.error) {
-          return;
-        }
-        this.set('dater', dater.name);
-      });
+      this.set('dater', dater.name);
     },
   },
 });
