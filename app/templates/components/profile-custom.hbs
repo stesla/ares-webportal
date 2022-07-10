@@ -3,6 +3,15 @@
     {{{ansi-format text=char.custom.dateprof}}}
     {{#if this.canSwipe}}
     <div class="action-buttons">
+      <div class="dating-char-select">
+        <PowerSelect @selected={{this.dating.swiping_with}}
+                     @options={{this.dating.dating_alts}}
+                     @searchEnabled=true
+                     @searchField="name"
+                     @onChange={{action "daterChanged"}} as |dater|>
+          <CharIconTiny @char={{dater}} />
+        </PowerSelect>
+      </div>
       <button {{action "swipe" char.name "interested"}} class="btn btn-secondary">Interested</button>
       <button {{action "swipe" char.name "curious"}} class="btn btn-secondary">Curious</button>
       <button {{action "swipe" char.name "skip"}} class="btn btn-secondary">Skip</button>

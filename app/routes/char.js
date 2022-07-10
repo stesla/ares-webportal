@@ -4,8 +4,9 @@ import RSVP from 'rsvp';
 import { inject as service } from '@ember/service';
 import ReloadableRoute from 'ares-webportal/mixins/reloadable-route';
 import DefaultRoute from 'ares-webportal/mixins/default-route';
+import AuthenticatedController from 'ares-webportal/mixins/authenticated-controller';
 
-export default Route.extend(DefaultRoute, ReloadableRoute, {
+export default Route.extend(DefaultRoute, ReloadableRoute, AuthenticatedController, {
     gameApi: service(),
     headData: service(),
     router: service(),
@@ -16,7 +17,7 @@ export default Route.extend(DefaultRoute, ReloadableRoute, {
         }
         this.set('headData.robotindex', true);
     },
-    
+
     model: function(params) {
         let api = this.gameApi;
         return RSVP.hash({
