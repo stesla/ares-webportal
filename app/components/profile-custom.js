@@ -8,7 +8,9 @@ export default Component.extend(Swiping, {
 
   didInsertElement: function() {
     this._super(...arguments);
-    this.updateDater();
+    if (this.get('dating.dating_alts')) {
+      this.updateDater();
+    }
   },
 
   match: computed('dating.match', function() {
