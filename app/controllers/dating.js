@@ -10,8 +10,10 @@ export default Controller.extend(Swiping, AuthenticatedController, {
   dating: {},
 
   modelObserver: observer('model', function() {
-    this.set('dating.dating_alts', this.get('model.dating_alts'));
-    this.updateDater(this.currentUser.name);
+    if (!this.get('dating.dating_alts')) {
+      this.set('dating.dating_alts', this.get('model.dating_alts'));
+      this.updateDater(this.currentUser.name);
+    }
   }),
 
   actions: {
@@ -29,6 +31,13 @@ export default Controller.extend(Swiping, AuthenticatedController, {
     daterChanged: function(dater) {
       this.set('dating.swiping_with', dater);
       this.set('dater', dater.name);
+      this.gameApi.requestOne('datingApp', { dater: dater.name })
+      .then( (response) => {
+        if (response.error) {
+          return;
+        }
+        this.set('model', response);
+      });
     },
   },
 });

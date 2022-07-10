@@ -38,7 +38,7 @@ export default Component.extend(Swiping, {
       this.gameApi.requestOne('matchFor', { id: this.char.id, dater: dater.name })
       .then( (response) => {
         if (response.error) {
-          return
+          return;
         }
         this.updateDatingInfo(response.match, response.swipe);
       });

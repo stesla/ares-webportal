@@ -3,7 +3,11 @@
 
 <div class="action-buttons">
   <div class="dating-char-select">
-    <PowerSelect @selected={{this.dating.swiping_with}} @options={{this.dating.dating_alts}} @searchEnabled=true @searchField="name" @onChange={{action "daterChanged"}} as |dater|>
+    <PowerSelect @selected={{this.dating.swiping_with}}
+                 @options={{this.dating.dating_alts}}
+                 @searchEnabled=true
+                 @searchField="name"
+                 @onChange={{action "daterChanged"}} as |dater|>
       <CharIconTiny @char={{dater}} />
     </PowerSelect>
   </div>
