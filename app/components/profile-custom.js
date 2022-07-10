@@ -34,6 +34,7 @@ export default Component.extend(Swiping, {
   actions: {
     daterChanged: function(dater) {
       this.set('dating.swiping_with', dater);
+      this.setDater(dater);
       this.gameApi.requestOne('matchFor', { id: this.char.id, dater: dater.name })
       .then( (response) => {
         if (response.error) {

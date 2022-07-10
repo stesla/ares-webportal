@@ -26,5 +26,8 @@ export default Component.extend({
     reloadChar() {
       this.reloadChar();
     },
+    setDater(dater) {
+      this.setDater(dater);
+    },
   },
 });
