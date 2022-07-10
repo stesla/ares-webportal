@@ -1,4 +1,5 @@
 import Controller from '@ember/controller';
+import { observer } from '@ember/object';
 import Swiping from 'ares-webportal/mixins/swiping';
 import AuthenticatedController from 'ares-webportal/mixins/authenticated-controller';
 
@@ -6,6 +7,12 @@ export default Controller.extend(Swiping, AuthenticatedController, {
   queryParams: ['dater'],
 
   dater: null,
+  dating: {},
+
+  modelObserver: observer('model', function() {
+    this.set('dating.dating_alts', this.get('model.dating_alts'));
+    this.updateDater(this.currentUser.name);
+  }),
 
   actions: {
     showOrHideAlts: function(option) {
@@ -20,6 +27,7 @@ export default Controller.extend(Swiping, AuthenticatedController, {
     },
 
     daterChanged: function(dater) {
+      this.set('dating.swiping_with', dater);
       this.set('dater', dater.name);
     },
   },
