@@ -18,7 +18,8 @@ export default Controller.extend(Swiping, AuthenticatedController, {
 
   actions: {
     showOrHideAlts: function(option) {
-      this.gameApi.requestOne('showOrHideAlts', { option: option }, null)
+      let dater = this.get('dating.swiping_with');
+      this.gameApi.requestOne('showOrHideAlts', { option: option, dater: dater.name }, null)
       .then( (response) => {
         if (response.error) {
           return;
