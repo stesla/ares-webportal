@@ -11,7 +11,7 @@
 
     <div class="col col-12 col-lg-8 profile-demo-wrap">        
 
-        <div class="profile-box">
+      <div class="profile-box">
 
         {{#each this.char.demographics as |demo|}}
         <div class="row">
@@ -42,7 +42,6 @@
 
 
         {{#if this.char.handle}}
-        
         <div class="row">
             <div class="col-sm-4">
                     <b>Player</b> 
@@ -51,7 +50,6 @@
                     <a href="http://arescentral.aresmush.com/handle/{{this.char.handle}}">{{this.char.handle}}</a>
             </div>
         </div>
-        
         {{/if}}
         
         <div class="row">
@@ -63,34 +61,6 @@
             </div>
         </div>
 
-        {{#if showDatingSection}}
-        <div class="profile-divider">
-        </div>
-        {{/if}}
-
-        {{#if this.dating.match}}
-        <div class="row">
-          <div class="col-sm-4">
-            <b>Dating Match</b>
-          </div>
-          <div class="col-sm-8">
-            {{this.dating.match}}
-          </div>
-        </div>
-        {{/if}}
-
-        {{#if this.dating.swipe}}
-        <div class="row">
-          <div class="col-sm-4">
-            <b>Dating Swipe</b>
-          </div>
-          <div class="col-sm-8">
-            {{this.dating.swipe.type}}{{if this.dating.swipe.missed " (Missed Connection)"}}
-          </div>
-        </div>
-        {{/if}}
-
-        </div>
-        
+      </div>
     </div>
 </div>

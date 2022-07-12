@@ -2,11 +2,34 @@
 <div id="dateprof-dateprof" class="tab-pane fade">
     {{{ansi-format text=char.custom.dateprof}}}
     {{#if this.canSwipe}}
-    <div class="action-buttons">
-      <button {{action "swipe" char.name "interested"}} class="btn btn-secondary">Interested</button>
-      <button {{action "swipe" char.name "curious"}} class="btn btn-secondary">Curious</button>
-      <button {{action "swipe" char.name "skip"}} class="btn btn-secondary">Skip</button>
-      <button {{action "swipe" char.name "missed_connection"}} class="btn btn-secondary">Missed Connection</button>
+    <div class="dating-ui">
+      <div>
+        <div class="dating-char-select">
+          <PowerSelect @selected={{this.dating.swiping_with}}
+                       @options={{this.dating.dating_alts}}
+                       @searchEnabled=true
+                       @searchField="name"
+                       @onChange={{action "daterChanged"}} as |dater|>
+            <CharIconTiny @char={{dater}} />
+          </PowerSelect>
+        </div>
+        <dl>
+          <div>
+            <dt>Match</dt>
+            <dd>{{ this.match }}</dd>
+          </div>
+          <div>
+            <dt>Swipe</dt>
+            <dd>{{ this.swipe }}</dd>
+          </div>
+        </dl>
+      </div>
+      <div>
+        <button {{action "swipe" char.name "interested"}} class="btn btn-secondary">Interested</button>
+        <button {{action "swipe" char.name "curious"}} class="btn btn-secondary">Curious</button>
+        <button {{action "swipe" char.name "skip"}} class="btn btn-secondary">Skip</button>
+        <button {{action "swipe" char.name "missed_connection"}} class="btn btn-secondary">Missed Connection</button>
+      </div>
     </div>
     {{/if}}
 </div>

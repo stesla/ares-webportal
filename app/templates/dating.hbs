@@ -3,7 +3,11 @@
 
 <div class="action-buttons">
   <div class="dating-char-select">
-    <PowerSelect @selected={{this.model.swiping_with}} @options={{this.model.dating_alts}} @searchEnabled=true @searchField="name" @onChange={{action "daterChanged"}} as |dater|>
+    <PowerSelect @selected={{this.dating.swiping_with}}
+                 @options={{this.dating.dating_alts}}
+                 @searchEnabled=true
+                 @searchField="name"
+                 @onChange={{action "daterChanged"}} as |dater|>
       <CharIconTiny @char={{dater}} />
     </PowerSelect>
   </div>
@@ -34,7 +38,7 @@
         {{else}}
         <img src="/game/uploads/theme_images/noicon.png" class="dating-profile-image" alt="{{this.model.profile.name}}'s icon" >
         {{/if}}
-        <LinkTo @route="char" @model={{this.model.profile.name}} class="dating-profile-link">View Profile</LinkTo>
+        <LinkTo @route="char" @model={{this.model.profile.name}} @query={{hash dater=this.dater}} class="dating-profile-link">View Profile</LinkTo>
       </div>
       <div class="col-lg">
         <div class="dating-facts-box">
@@ -67,14 +71,14 @@
   <div id="matches" class="tab-pane fade show {{unless this.model.profile 'active'}}">
     {{#each this.model.matches as |list|}}
     <h2>{{list.name}}</h2>
-    <CharGroupList @name="" @chars={{list.characters}} />
+    <CharGroupList @name="" @chars={{list.characters}} @dater={{this.dater}} />
     {{/each}}
   </div>
 
   <div id="swipes" class="tab-pane fade show">
     {{#each this.model.swipes as |list|}}
     <h2>{{list.name}}</h2>
-    <CharGroupList @name="" @chars={{list.characters}} />
+    <CharGroupList @name="" @chars={{list.characters}} @dater={{this.dater}} />
     {{/each}}
   </div>
 </div>

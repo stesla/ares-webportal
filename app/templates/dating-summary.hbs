@@ -19,14 +19,14 @@
 {{#each m.characters as |c|}}
   <li>
     <div>
-      <LinkTo @route="char" @model={{c.name}}>
+      <LinkTo @route="char" @model={{c.name}} @query={{hash dater=alt.char.name}}>
         {{#if c.icon}}
         <img alt="{{c.name}}'s icon" class="small-profile-icon" src="/game/uploads/{{c.icon}}">
         {{else}}
         <img alt="{{c.name}}'s icon" class="small-profile-icon" src="/game/uploads/theme_images/noicon.png">
         {{/if}}
       </LinkTo>
-      <LinkTo @route="char" @model={{c.name}}>{{c.name}}</LinkTo>
+      <LinkTo @route="char" @model={{c.name}} @query={{hash dater=alt.char.name}}>{{c.name}}</LinkTo>
     </div>
   </li>
 {{/each}}

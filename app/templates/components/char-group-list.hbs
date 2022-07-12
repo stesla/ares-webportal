@@ -7,7 +7,7 @@
             {{#each this.chars as |c| }}
     
              <div class="icon-gallery-item">
-                <CharIcon @char={{c}} />
+               <CharIcon @char={{c}} @dater={{this.dater}} />
               </div>
           
             {{/each}}
