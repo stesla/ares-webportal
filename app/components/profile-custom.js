@@ -17,6 +17,10 @@ export default Component.extend(Swiping, {
     return this.get('dating.match') || 'None';
   }),
 
+  showDatingUI: computed('canSwipe', 'char.custom.canSwipe', function() {
+    return this.canSwipe && this.char.custom.canSwipe
+  }),
+
   swipe: computed('dating.swipe', function() {
     let swipe = this.get('dating.swipe');
     if (!swipe) {
