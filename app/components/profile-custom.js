@@ -18,7 +18,7 @@ export default Component.extend(Swiping, {
   }),
 
   showDatingUI: computed('canSwipe', 'char.custom.canSwipe', function() {
-    return this.canSwipe && this.char.custom.canSwipe
+    return this.get('dating.dating_alts') && this.canSwipe && this.char.custom.canSwipe;
   }),
 
   swipe: computed('dating.swipe', function() {
