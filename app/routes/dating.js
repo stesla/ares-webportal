@@ -11,6 +11,7 @@ export default Route.extend(DefaultRoute, ReloadableRoute, AuthenticatedRoute, {
   queryParams: {
     dater: {
       replace: true,
+      refreshModel: true,
     },
   },
 
