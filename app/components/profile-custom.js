@@ -17,6 +17,14 @@ export default Component.extend(Swiping, {
     return this.get('dating.match') || 'None';
   }),
 
+  showDatingProfileTab: computed('char.custom.showDatingProfile', function() {
+    return this.char.custom.showDatingProfile;
+  }),
+
+  showDatingMatchesTab: computed('dating.matches', function() {
+    return Object.keys(this.dating.matches).length > 0;
+  }),
+
   showDatingUI: computed('canSwipe', 'char.custom.canSwipe', function() {
     return this.get('dating.dating_alts') && this.canSwipe && this.char.custom.canSwipe;
   }),
@@ -32,9 +40,12 @@ export default Component.extend(Swiping, {
     }
   }),
 
-  updateDatingInfo: function(match, swipe) {
-    this.set('dating.match', match);
-    this.set('dating.swipe', swipe);
+  updateDatingInfo: function(dating) {
+    this.set('dating.match', dating.match);
+    this.set('dating.swipe', dating.swipe);
+    if (dating.matches) {
+      this.set('dating.matches', dating.matches);
+    }
   },
 
   actions: {
@@ -46,7 +57,7 @@ export default Component.extend(Swiping, {
         if (response.error) {
           return;
         }
-        this.updateDatingInfo(response.match, response.swipe);
+        this.updateDatingInfo(response);
       });
     },
   },
