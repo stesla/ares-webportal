@@ -32,13 +32,6 @@ export default Controller.extend(Swiping, AuthenticatedController, {
     daterChanged: function(dater) {
       this.set('dating.swiping_with', dater);
       this.set('dater', dater.name);
-      this.gameApi.requestOne('datingApp', { dater: dater.name })
-      .then( (response) => {
-        if (response.error) {
-          return;
-        }
-        this.set('model', response);
-      });
     },
   },
 });
