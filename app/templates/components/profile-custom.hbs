@@ -1,4 +1,4 @@
-{{#if this.char.custom.showDatingProfile}}
+{{#if this.showDatingProfileTab}}
 <div id="dateprof-dateprof" class="tab-pane fade">
     {{{ansi-format text=char.custom.dateprof}}}
     {{#if this.showDatingUI}}
@@ -32,5 +32,26 @@
       </div>
     </div>
     {{/if}}
+</div>
+{{/if}}
+{{#if this.showDatingMatchesTab}}
+<div id="dateprof-matches" class="tab-pane fade">
+  {{#each this.dating.matches as |m|}}
+    <h3>{{m.name}}</h3>
+    <ul class="dating-alts-match-list">
+    {{#each m.characters as |c|}}
+      <li>
+        <div>
+          {{#if c.icon}}
+          <img alt="{{c.name}}'s icon" class="small-profile-icon" src="/game/uploads/{{c.icon}}">
+          {{else}}
+          <img alt="{{c.name}}'s icon" class="small-profile-icon" src="/game/uploads/theme_images/noicon.png">
+          {{/if}}
+          <span>{{c.name}}</span>
+        </div>
+      </li>
+    {{/each}}
+    </ul>
+  {{/each}}
 </div>
 {{/if}}

@@ -28,7 +28,7 @@ export default Mixin.create({
     this.set('dating.swiping_with', dater);
   },
 
-  updateDatingInfo: function(match, swipe) {
+  updateDatingInfo: function(dating) {
     this.send('reloadModel');
   },
 
@@ -41,7 +41,7 @@ export default Mixin.create({
           return;
         }
         this.flashMessages.success(response.message);
-        this.updateDatingInfo(response.match, response.swipe);
+        this.updateDatingInfo(response);
      });
     },
   },
