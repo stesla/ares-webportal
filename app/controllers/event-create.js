@@ -33,7 +33,7 @@ export default Controller.extend(AuthenticatedController, {
       },
       
         changeDate: function(date) {
-            let formatted_date = dayjs(date).format(this.get('model.app.game.date_entry_format')); //moment(date).format(this.get('model.app.game.date_entry_format'));
+            let formatted_date = dayjs(date).format(this.get('model.app.game.date_entry_format')); 
             this.set('date', formatted_date);  
         },
         create: function() {
