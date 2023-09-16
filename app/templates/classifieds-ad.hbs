@@ -1,6 +1,19 @@
 {{page-title this.model.title}}
-<h2>{{this.model.title}}</h2>
-<small>(Tags: {{#each this.model.tags as |tag|}}
-    <LinkTo @route="wiki-tag" @model={{tag}}>{{tag}}</LinkTo>
-{{/each}})</small>
-<p>{{this.model.text}}</p>
+<div class="card mx-auto mt-5" style="width: 400px;">
+    <div class="card-header d-flex justify-content-between">
+        <h5 class="m-0 lh-base">{{this.model.title}}</h5>
+        <LinkTo @route="char" @model={{this.model.author.name}}>
+            <CharIconTiny @char={{this.model.author.name}}/>
+        </LinkTo>
+    </div>
+    <div class="card-body">
+        <p class="card-text">{{this.model.text}}</p>
+    </div>
+    <div class="card-footer">
+        <div class="d-flex">
+        {{#each this.model.tags as |tag|}}
+            <LinkTo class="badge rounded-pill bg-info card-link" @route="wiki-tag" @model={{tag}}>{{tag}}</LinkTo>
+        {{/each}}
+        </div>
+    </div>
+</div>
