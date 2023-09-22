@@ -3,25 +3,6 @@
 
 <div class="py-4" style="column-count: auto; column-width: 400px">
     {{#each this.model.classifieds as |ad|}}
-    <div class="card" style="width: 400px; break-inside: avoid">
-        <div class="card-header d-flex justify-content-between">
-            <LinkTo @route="classifieds-ad" @model={{ad.id}}>
-                <h5 class="m-0 lh-base">{{ad.title}}</h5>
-            </LinkTo>
-            <LinkTo @route="char" @model={{ad.author.name}}>
-                <CharIconTiny @char={{ad.author.name}}/>
-            </LinkTo>
-        </div>
-        <div class="card-body">
-            <p class="card-text">{{ad.text}}</p>
-        </div>
-        <div class="card-footer">
-            <div class="d-flex">
-            {{#each ad.tags as |tag|}}
-                <LinkTo class="badge rounded-pill bg-info card-link" @route="wiki-tag" @model={{tag}}>{{tag}}</LinkTo>
-            {{/each}}
-            </div>
-        </div>
-    </div>
+    <ClassifiedsAd @model={{ ad }} @linkTitle=true />
     {{/each}}
 </div>
